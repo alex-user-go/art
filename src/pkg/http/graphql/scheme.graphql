@@ -1,0 +1,50 @@
+type Artist {
+    id: ID!
+    name: String!
+    artworks: [Artwork]
+}
+
+type Artwork {
+     id: ID!
+     title: String!
+     artist: Artist!
+}
+
+type Query {
+     filterArtists(name: String!): [Artist]!  
+     artist(id: ID!): Artist
+}
+
+input ArtistUpdateAction{  
+    setName: SetArtistName
+}   
+
+input SetArtistName{
+    name: String!
+}
+
+input SetArtistArtWorks{
+    artworksID: [ID!]!
+}
+
+input ArtworkUpdateAction{  
+    setTitle: SetArtworkTitle
+    setArtist: SetArtworkArtist
+}
+input SetArtworkTitle{
+    title: String!
+}
+input SetArtworkArtist{
+    artistID: ID!
+}
+
+
+type Mutation {
+    addArtist(name: String!): Artist!
+    updateArtist(id: ID!, actions: ArtistUpdateAction):Artist!     
+    deleteArtist(id: ID!): ID
+    addArtwork(title: String!, artistID: ID!): Artwork!
+    updateArtwork( id: ID!, actions: ArtworkUpdateAction): Artwork!
+    deleteArtwork(id: ID!): ID
+}
+
