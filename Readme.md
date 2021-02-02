@@ -1,6 +1,14 @@
+# ART
+A simple GraphQL server for managing artists and artworks. 
+An artist has a name and a set of artworks, each artwork has a title. Artwork can only belong to a single artist.
+## Not invented here
+This repo was inspired by the great [Kat Zien speech (GopherCon 2018)](https://www.youtube.com/watch?v=oL6JBUk6tj0&t=245s).
 
+GraphQl mutations are based on the [Anemic Mutations](https://xuorig.medium.com/raphql-mutation-design-anemic-mutations-dd107ba70496),
+allowing users to update any field independently without optional fields
+
+ 
 ## Examples:
-
 ### Adding:
 ```graphql
 mutation {
